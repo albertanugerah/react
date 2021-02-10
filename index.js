@@ -1,16 +1,21 @@
-const express = require('express')
-require('./services/passport')
-require('./routes/authRoutes')
+const express = require("express");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+require("./services/passport");
 
-const app = express()
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+});
 
+const app = express();
 
-authRoutes(app)
-
-
+require("./routes/authRoutes")(app);
 // process.env.PORT heroku inject process.env
-const PORT = process.env.PORT ||5000
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}/auth/google`)
-})
+  console.log(`Example app listening at http://localhost:${PORT}/auth/google`);
+});
