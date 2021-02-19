@@ -1,0 +1,14 @@
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "prettier.resolveGlobalModules": true,
+  "prettier.withNodeModules": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.tabWidth": 2
+}
