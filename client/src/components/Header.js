@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {} from 'module';
 
 class Header extends Component {
   render() {
