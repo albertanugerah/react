@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return 'still deciding';
+        return;
       case false:
         return (
           <li>
@@ -26,7 +27,12 @@ class Header extends Component {
     return (
       <nav>
         <div className='nav-wrapper'>
-          <a className='left brand-logo'>Emaily</a>
+          <Link
+            to={this.props.auth ? '/surveys' : '/'}
+            className='left brand-logo'
+          >
+            Emaily
+          </Link>
           <ul className='right'>{this.renderContent()}</ul>
         </div>
       </nav>
