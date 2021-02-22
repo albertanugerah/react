@@ -1,19 +1,16 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cookieSession = require("cookie-session");
-const passport = require("passport");
-const keys = require("./config/keys");
-require("./models/User");
-require("./services/passport");
+/* eslint-disable no-undef */
+const express = require('express');
+const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const keys = require('./config/keys');
+require('./models/User');
+require('./services/passport');
 
-mongoose.connect(keys.mongoURI
-  , {
+mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-//   useFindAndModify: false,
-//   useCreateIndex: true,
-}
-);
+});
 const app = express();
 
 app.use(
@@ -26,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./routes/authRoutes")(app);
+require('./routes/authRoutes')(app);
 // process.env.PORT heroku inject process.env
 const PORT = process.env.PORT || 5000;
 
